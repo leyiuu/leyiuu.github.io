@@ -1,173 +1,174 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weichao LIU| GitHub Profile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weichao Liu | Portfolio</title>
   <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #071e3d;
+      color: #ffffff;
+      line-height: 1.6;
     }
-    a { color: #58a6ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container {
-      width: 100%;
-      max-width: 1600px;
-      padding: 2rem;
-      margin: auto;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .top-section {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      align-items: start;
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 2rem;
-    }
-    .profile-img {
-      width: 100%;
-      aspect-ratio: 3 / 4; /* 宽:高 */
-      object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid #58a6ff;
-      box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #58a6ff;
-    }
-    .tagline {
-      color: #8b949e;
-      margin-top: 0.5rem;
-      font-style: italic;
-    }
-    .section {
-      margin-top: 3rem;
-      position: relative;
-    }
-    .section h2 {
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-      position: relative;
-    }
-    .section h2::before {
-      content: "✨";
-      position: absolute;
-      left: -1.5rem;
-      top: 0;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    .github-stats {
+    /* Hero section */
+    .hero {
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      min-height: 90vh;
+      background: linear-gradient(135deg, #0e2954 0%, #071e3d 100%);
     }
-    .card {
-      background: #161b22;
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid #30363d;
-      flex: 1;
-      min-width: 280px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .projects table {
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1000px;
       width: 100%;
-      border-collapse: collapse;
     }
-    .projects th, .projects td {
-      border: 1px solid #30363d;
-      padding: 0.75rem;
-      text-align: left;
+    .hero-content {
+      text-align: center;
+      padding: 1.5rem;
     }
-    .footer {
-      margin-top: 4rem;
-      font-size: 0.95rem;
-      color: #c9d1d9;
-      background: #161b22;
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid #30363d;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .hero-content h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #00bcd4;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #00bcd4;
+      border-radius: 30px;
+      color: #00bcd4;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover {
+      background: #00bcd4;
+      color: #071e3d;
+    }
+    /* Profile image */
+    .profile-pic {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border: 5px solid #00bcd4;
+    }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Arrow */
+    .down-arrow {
+      margin-top: 2.5rem;
+      font-size: 2rem;
+      color: #00bcd4;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .hero-container {
+        flex-direction: row;
+        align-items: center;
+      }
+      .profile-pic {
+        margin-right: 2rem;
+        margin-bottom: 0;
+      }
+      .hero-content {
+        text-align: left;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-section">
-      <img src="P1000058.JPG" alt="Weichao LIU" class="profile-img" />
-      <div>
-        <h1>👋 Hi! I'm Weichao LIU</h1>
-        <p class="tagline">📍 PhD student @ Tongji University | 🐍 Python & ⚙️ DEM Learner</p>
-        <p>📧 Email: <a href="mailto:weic_l@tongji.edu.cn">weic_l@tongji.edu.cn</a></p>
-
-        <div class="section">
-          <h2>📚 About Me</h2>
-          <ul>
-            <li>🧪 Currently working on model tests about landslide.</li>
-            <li>💻 Learning Python and Discrete Element Method (DEM).</li>
-          </ul>
-          <div class="section projects">
-            <h2>📖 Featured Projects</h2>
-            <table>
-              <tr><th>Project</th><th>Description</th><th>Link</th></tr>
-              <tr>
-                <td>Mouse Clicker Automation</td>
-                <td>A Python-based GUI tool for automating mouse clicks and testing workflows with visual feedback.</td>
-                <td><a href="https://github.com/leyiuu/mouse-clicker" target="_blank">View on GitHub</a></td>
-              </tr>
-              <tr>
-                <td>PIVlab Commandline mlx</td>
-                <td>Matlab code based on PIVlab for PIV analysis in flume experiments.</td>
-                <td><a href="https://github.com/leyiuu/PIVlab_commandline_mlx_for_flume_test" target="_blank">View on GitHub</a></td>
-              </tr>
-            </table>
-          </div>
+  <section class="hero">
+    <div class="hero-container">
+      <div class="profile-pic">
+        <!-- Use a placeholder profile image; replace this path with an actual photo of Weichao Liu if available -->
+        <img src="https://leyiuu.github.io/profile.jpg" alt="Weichao Liu profile photo" />
+      </div>
+      <div class="hero-content">
+        <h1>Hi, I'm Weichao Liu</h1>
+        <h2>PhD Student & DEM Learner</h2>
+        <p>
+          I am currently a Ph.D. student at Tongji University researching
+          landslide modelling. I'm passionate about Python and the
+          Discrete Element Method (DEM), continually learning and applying
+          these tools to solve real-world geotechnical problems.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn" href="#projects">Featured Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
         </div>
       </div>
     </div>
+    <div class="down-arrow">&#x2193;</div>
+  </section>
 
-    <div class="section">
-      <h2>📊 GitHub Stats</h2>
-      <div class="github-stats">
-        <div class="card">
-          <h3>📆 Contribution Calendar</h3>
-          <div class="calendar">
-            Loading GitHub calendar...
-          </div>
-        </div>
-        <div class="card">
-          <h3>🔥 Contribution Overview</h3>
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=leyiuu&theme=github-dark" alt="GitHub Streak" style="width:100%">
-        </div>
+  <!-- Optional other sections can be added here -->
+  <section id="projects" style="padding: 4rem 2rem; background:#0e2954; text-align:center;">
+    <h2 style="color:#00bcd4; margin-bottom:1rem;">Featured Projects</h2>
+    <p style="max-width:700px; margin:0 auto 2rem; opacity:0.8;">Here are a few highlighted projects demonstrating my interest in automation, fluid dynamics, and software development.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+      <div style="background:#071e3d; padding:1.5rem; border-radius:10px; width:260px;">
+        <h3 style="color:#00bcd4; margin-bottom:0.5rem;">Mouse Clicker Automation</h3>
+        <p style="font-size:0.9rem; margin-bottom:1rem; opacity:0.8;">A Python GUI tool for automating mouse clicks and testing workflows with visual feedback.</p>
+        <a href="https://github.com/leyiuu/Mouse_Clicker_Automation" class="btn" style="padding:0.5rem 1rem; font-size:0.8rem;">View on GitHub</a>
+      </div>
+      <div style="background:#071e3d; padding:1.5rem; border-radius:10px; width:260px;">
+        <h3 style="color:#00bcd4; margin-bottom:0.5rem;">PIVlab Commandline mlx</h3>
+        <p style="font-size:0.9rem; margin-bottom:1rem; opacity:0.8;">MATLAB code based on PIVlab for PIV analysis in flume experiments.</p>
+        <a href="https://github.com/leyiuu/pivlab_commandline_mlx" class="btn" style="padding:0.5rem 1rem; font-size:0.8rem;">View on GitHub</a>
       </div>
     </div>
+  </section>
 
-    <div class="footer">
-      <h2>📄 My Journal</h2>
-      <p>📝 Note: Something not important</p>
-      <p>🔗 See my latest diary entries <a href="https://github.com/leyiuu/diary" target="_blank">here</a>.</p>
-    </div>
-  </div>
-
-  <script>
-    GitHubCalendar(".calendar", "leyiuu", { responsive: true });
-  </script>
+  <section id="contact" style="padding: 3rem 2rem; background:#071e3d; text-align:center;">
+    <h2 style="color:#00bcd4; margin-bottom:1rem;">Get in Touch</h2>
+    <p style="max-width:600px; margin:0 auto 2rem; opacity:0.8;">Feel free to contact me for collaboration or to learn more about my work.</p>
+    <a href="mailto:weic_l@tongji.edu.cn" class="btn">Email Me</a>
+  </section>
 </body>
 </html>
+
