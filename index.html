@@ -1,174 +1,761 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weichao Liu | Portfolio</title>
-  <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: #071e3d;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    /* Hero section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      min-height: 90vh;
-      background: linear-gradient(135deg, #0e2954 0%, #071e3d 100%);
-    }
-    .hero-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 1000px;
-      width: 100%;
-    }
-    .hero-content {
-      text-align: center;
-      padding: 1.5rem;
-    }
-    .hero-content h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .hero-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #00bcd4;
-      margin-bottom: 1rem;
-    }
-    .hero-content p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      opacity: 0.85;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid #00bcd4;
-      border-radius: 30px;
-      color: #00bcd4;
-      font-weight: 600;
-      transition: background 0.3s, color 0.3s;
-    }
-    .btn:hover {
-      background: #00bcd4;
-      color: #071e3d;
-    }
-    /* Profile image */
-    .profile-pic {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      border: 5px solid #00bcd4;
-    }
-    .profile-pic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* Arrow */
-    .down-arrow {
-      margin-top: 2.5rem;
-      font-size: 2rem;
-      color: #00bcd4;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-    /* Responsive adjustments */
-    @media (min-width: 768px) {
-      .hero-container {
-        flex-direction: row;
-        align-items: center;
-      }
-      .profile-pic {
-        margin-right: 2rem;
-        margin-bottom: 0;
-      }
-      .hero-content {
-        text-align: left;
-        align-items: flex-start;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weichao Liu | Researcher & Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ffffff;
+            --secondary: #000000;
+            --accent: #ffffff;
+            --dark: #ffffff;
+            --light: #000000;
+            --gray: #cccccc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #cccccc;
+        }
+
+        /* Hero区域 */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #000000;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #333;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-50px, -50px); }
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s backwards;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+            animation: slideInLeft 1s ease-out 0.4s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 1s ease-out 0.6s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #000000;
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #000000;
+        }
+
+        /* 通用区块样式 */
+        section {
+            padding: 5rem 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ffffff;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* 关于我 */
+        #about {
+            background: #000000;
+        }
+
+        /* 学术成果 */
+        #publications {
+            background: #000000;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+        }
+
+        /* 项目展示 */
+        #projects {
+            background: #000000;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+            border-color: #ffffff;
+        }
+
+        .project-image {
+            height: 200px;
+            background: #1a1a1a;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .project-content p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #ffffff;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #cccccc;
+        }
+
+        /* 活动跟踪区域 - 新增 */
+        #activity {
+            background: #000000;
+            color: white;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        #activity .section-title {
+            color: white;
+        }
+
+        #activity .section-title::after {
+            background: white;
+        }
+
+        .activity-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .activity-chart {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 2rem;
+            color: #ffffff;
+        }
+
+        .activity-chart h3 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cccccc;
+        }
+
+        /* 联系方式 */
+        #contact {
+            background: #000000;
+            color: white;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact .section-title::after {
+            background: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: white;
+            color: #000000;
+            transform: translateY(-5px);
+            border-color: white;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-container">
-      <div class="profile-pic">
-        <!-- Use a placeholder profile image; replace this path with an actual photo of Weichao Liu if available -->
-        <img src="https://leyiuu.github.io/profile.jpg" alt="Weichao Liu profile photo" />
-      </div>
-      <div class="hero-content">
-        <h1>Hi, I'm Weichao Liu</h1>
-        <h2>PhD Student & DEM Learner</h2>
-        <p>
-          I am currently a Ph.D. student at Tongji University researching
-          landslide modelling. I'm passionate about Python and the
-          Discrete Element Method (DEM), continually learning and applying
-          these tools to solve real-world geotechnical problems.
-        </p>
-        <div class="hero-buttons">
-          <a class="btn" href="#projects">Featured Projects</a>
-          <a class="btn" href="#contact">Contact Me</a>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">Weichao Liu</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#activity">Activity</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
-    <div class="down-arrow">&#x2193;</div>
-  </section>
+    </nav>
 
-  <!-- Optional other sections can be added here -->
-  <section id="projects" style="padding: 4rem 2rem; background:#0e2954; text-align:center;">
-    <h2 style="color:#00bcd4; margin-bottom:1rem;">Featured Projects</h2>
-    <p style="max-width:700px; margin:0 auto 2rem; opacity:0.8;">Here are a few highlighted projects demonstrating my interest in automation, fluid dynamics, and software development.</p>
-    <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
-      <div style="background:#071e3d; padding:1.5rem; border-radius:10px; width:260px;">
-        <h3 style="color:#00bcd4; margin-bottom:0.5rem;">Mouse Clicker Automation</h3>
-        <p style="font-size:0.9rem; margin-bottom:1rem; opacity:0.8;">A Python GUI tool for automating mouse clicks and testing workflows with visual feedback.</p>
-        <a href="https://github.com/leyiuu/Mouse_Clicker_Automation" class="btn" style="padding:0.5rem 1rem; font-size:0.8rem;">View on GitHub</a>
-      </div>
-      <div style="background:#071e3d; padding:1.5rem; border-radius:10px; width:260px;">
-        <h3 style="color:#00bcd4; margin-bottom:0.5rem;">PIVlab Commandline mlx</h3>
-        <p style="font-size:0.9rem; margin-bottom:1rem; opacity:0.8;">MATLAB code based on PIVlab for PIV analysis in flume experiments.</p>
-        <a href="https://github.com/leyiuu/pivlab_commandline_mlx" class="btn" style="padding:0.5rem 1rem; font-size:0.8rem;">View on GitHub</a>
-      </div>
-    </div>
-  </section>
+    <!-- Hero区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm Weichao Liu 👋</h1>
+            <p class="subtitle">Researcher & Python Developer</p>
+            <p>Ph.D. student at Tongji University specializing in landslide modelling. Passionate about Python, Discrete Element Method (DEM), and solving real-world geotechnical problems through computational approaches.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact" style="padding: 3rem 2rem; background:#071e3d; text-align:center;">
-    <h2 style="color:#00bcd4; margin-bottom:1rem;">Get in Touch</h2>
-    <p style="max-width:600px; margin:0 auto 2rem; opacity:0.8;">Feel free to contact me for collaboration or to learn more about my work.</p>
-    <a href="mailto:weic_l@tongji.edu.cn" class="btn">Email Me</a>
-  </section>
+    <!-- 关于我 -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Computational Geotechnics Researcher</h3>
+                    <p>I am currently pursuing my Ph.D. at Tongji University, focusing on landslide modelling and computational geotechnics. My research combines theoretical analysis with practical applications using advanced numerical methods.</p>
+                    <p>I'm passionate about automation, software development, and applying computational tools to solve complex engineering challenges. My work spans from developing GUI applications to analyzing fluid dynamics in experimental settings.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">DEM</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Landslide Modelling</span>
+                        <span class="skill-tag">Computational Mechanics</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div style="width: 100%; height: 400px; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
+                        🎓
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学术成果 - 新增 -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Research & Publications</h2>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <p style="color: #cccccc; max-width: 800px; margin: 0 auto 2rem;">
+                    My research focuses on computational geotechnics, particularly in landslide modelling using advanced numerical methods. 
+                    For a complete list of publications, visit my ORCID profile.
+                </p>
+                <a href="https://orcid.org/0009-0007-0725-3026" target="_blank" class="btn btn-primary" style="display: inline-block; background: #ffffff; color: #000000; border: 1px solid #ffffff;">
+                    <span style="font-size: 1.2rem; margin-right: 0.5rem;">🆔</span> View ORCID Profile
+                </a>
+            </div>
+
+            <!-- 论文列表占位 -->
+            <div style="margin-top: 4rem; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; padding: 3rem; box-shadow: 0 10px 30px rgba(255,255,255,0.05);">
+                <h3 style="color: #ffffff; margin-bottom: 2rem; font-size: 1.8rem;">📄 Selected Publications</h3>
+                <div style="color: #cccccc; text-align: center; padding: 2rem;">
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">Publications and citations tracked via ORCID</p>
+                    <p style="opacity: 0.7;">Visit my ORCID profile for the complete list of peer-reviewed publications, conference proceedings, and research outputs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- 项目1 -->
+                <div class="project-card">
+                    <div class="project-image">🖱️</div>
+                    <div class="project-content">
+                        <h3>Auto Clicker GUI</h3>
+                        <p>A Python-based GUI tool for automating mouse clicks and testing workflows with real-time visual feedback and customizable settings.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">GUI</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">PyQt</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub →</a>
+                            <a href="#" class="project-link">Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目2 -->
+                <div class="project-card">
+                    <div class="project-image">🌊</div>
+                    <div class="project-content">
+                        <h3>PIV Analysis Tool</h3>
+                        <p>MATLAB code based on PIVlab for Particle Image Velocimetry analysis in flume experiments, providing accurate fluid dynamics measurements.</p>
+                        <div class="project-tags">
+                            <span class="tag">MATLAB</span>
+                            <span class="tag">PIV</span>
+                            <span class="tag">Fluid Dynamics</span>
+                            <span class="tag">PIVlab</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">GitHub →</a>
+                            <a href="#" class="project-link">Documentation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目3 - 活动跟踪 -->
+                <div class="project-card">
+                    <div class="project-image">⏱️</div>
+                    <div class="project-content">
+                        <h3>Activity Tracker</h3>
+                        <p>Real-time tracking system for daily computer usage patterns, including work time distribution, cursor movement heatmaps, and productivity analytics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Viz</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#activity" class="project-link">View Data →</a>
+                            <a href="#" class="project-link">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动跟踪 - 新增区块 -->
+    <section id="activity">
+        <div class="container">
+            <h2 class="section-title">Activity Tracking</h2>
+            <p style="text-align: center; margin-bottom: 3rem; opacity: 0.9;">Real-time monitoring of my daily computer activity and productivity patterns</p>
+            
+            <div class="activity-stats">
+                <div class="stat-card">
+                    <h3 id="today-time">0h 0m</h3>
+                    <p>Today's Active Time</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="week-time">0h</h3>
+                    <p>This Week</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="total-records">0</h3>
+                    <p>Total Records</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="last-update">--:--</h3>
+                    <p>Last Update</p>
+                </div>
+            </div>
+
+            <div class="activity-chart">
+                <h3>📊 Activity Timeline</h3>
+                <div class="chart-placeholder">
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Activity data will appear here</p>
+                        <p style="opacity: 0.7;">Python script automatically uploads daily activity logs to this dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="data/activity.json" class="btn btn-primary" style="display: inline-block; background: #ffffff; color: #000000; border: 1px solid #ffffff;">📁 View Raw Data</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="margin-bottom: 3rem; opacity: 0.8;">Feel free to reach out for collaboration, questions, or just to say hi!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <p>Email</p>
+                    <a href="mailto:weic_l@tongji.edu.cn" style="color: white; opacity: 0.8;">weic_l@tongji.edu.cn</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🎓</div>
+                    <p>Institution</p>
+                    <span style="opacity: 0.8;">Tongji University</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <p>Location</p>
+                    <span style="opacity: 0.8;">Shanghai, China</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🆔</div>
+                    <p>ORCID</p>
+                    <a href="https://orcid.org/0009-0007-0725-3026" style="color: white; opacity: 0.8;" target="_blank">0009-0007-0725-3026</a>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/leyiuu" class="social-link" target="_blank" title="GitHub">💻</a>
+                <a href="https://orcid.org/0009-0007-0725-3026" class="social-link" target="_blank" title="ORCID">🆔</a>
+                <a href="#" class="social-link" target="_blank" title="LinkedIn">💼</a>
+                <a href="#" class="social-link" target="_blank" title="Research Gate">🔬</a>
+                <a href="#" class="social-link" target="_blank" title="Google Scholar">📚</a>
+            </div>
+
+            <p style="margin-top: 3rem; opacity: 0.6; font-size: 0.9rem;">© 2025 Weichao Liu | Built with ❤️ and code</p>
+        </div>
+    </section>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 模拟活动数据加载
+        function updateActivityStats() {
+            // 这里可以从 data/activity.json 加载真实数据
+            document.getElementById('today-time').textContent = '6h 30m';
+            document.getElementById('week-time').textContent = '42h';
+            document.getElementById('total-records').textContent = '127';
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'});
+        }
+
+        // 页面加载时更新数据
+        updateActivityStats();
+    </script>
 </body>
 </html>
 
