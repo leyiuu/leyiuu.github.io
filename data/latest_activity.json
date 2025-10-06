@@ -1,16 +1,28 @@
 {
-  "date": "2025-10-04",
-  "last_activity": "2025-10-04T11:02:16.281074",
+  "date": "2025-10-06",
+  "last_activity": "2025-10-06T20:20:04.717823",
   "total_active_time": 0,
   "total_active_time_formatted": "0s",
-  "weekly_total": 16,
-  "total_records": 1,
+  "weekly_total": 54858,
+  "total_records": 3,
   "recent_history": [
+    {
+      "date": "2025-10-05",
+      "total_time": 29614,
+      "formatted_time": "8h 13m",
+      "periods": 4
+    },
     {
       "date": "2025-10-04",
       "total_time": 16,
       "formatted_time": "16s",
       "periods": 1
+    },
+    {
+      "date": "2025-10-04",
+      "total_time": 25228,
+      "formatted_time": "7h 0m",
+      "periods": 4
     }
   ],
   "synced": false,
