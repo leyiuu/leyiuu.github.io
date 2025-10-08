@@ -1,11 +1,17 @@
 {
-  "date": "2025-10-06",
-  "last_activity": "2025-10-06T20:25:03.906550",
-  "total_active_time": 299,
-  "total_active_time_formatted": "4m 59s",
-  "weekly_total": 55157,
-  "total_records": 3,
+  "date": "2025-10-07",
+  "last_activity": "2025-10-07T21:18:26.572839",
+  "total_active_time": 60489,
+  "total_active_time_formatted": "16h 48m",
+  "weekly_total": 116794,
+  "total_records": 4,
   "recent_history": [
+    {
+      "date": "2025-10-06",
+      "total_time": 1447,
+      "formatted_time": "24m 7s",
+      "periods": 2
+    },
     {
       "date": "2025-10-05",
       "total_time": 29614,
@@ -26,5 +32,5 @@
     }
   ],
   "synced": false,
-  "activity_count": 11723
+  "activity_count": 425790
 }
